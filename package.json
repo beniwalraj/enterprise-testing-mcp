@@ -1,0 +1,25 @@
+{
+  "name": "enterprise-testing-mcp",
+  "version": "1.0.0",
+  "type": "module",
+"scripts": {
+  "build": "tsc",
+  "start": "tsx src/index.ts",
+  "agent": "tsx src/agent-runner.ts",
+  "seed-auth": "tsx src/seed-session.ts"
+},
+
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.127.0",
+    "@google/generative-ai": "^0.24.1",
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@playwright/mcp": "^0.0.82",
+    "dotenv": "^18.0.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  }
+}

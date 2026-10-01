@@ -1,0 +1,39 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - heading "🏋️‍♂️ QA GYM" [level=1] [ref=e5]
+      - paragraph [ref=e6]: Real-World Sandbox for Autonomous AI Agents & Playwright Loops
+    - generic [ref=e7]:
+      - generic [ref=e8]:
+        - generic [ref=e9]: Network Latency
+        - combobox [ref=e10]:
+          - option "0ms (Instant)" [selected]
+          - option "500ms (Slow)"
+          - option "2000ms (Heavy Lag)"
+      - 'button "Chaos Mode: OFF" [ref=e12] [cursor=pointer]'
+  - main [ref=e13]:
+    - generic [ref=e14]:
+      - heading "🛒 /market/checkout" [level=2] [ref=e15]
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - generic [ref=e18]: 📦 Enterprise Automation License Pack
+          - generic [ref=e19]: $299.00
+        - generic [ref=e20]:
+          - generic [ref=e21]: Promo Coupon Code
+          - textbox "e.g. AUTONOMY2026" [ref=e22]
+        - button "Submit Order Checkout" [ref=e23] [cursor=pointer]
+    - generic [ref=e25]:
+      - heading "🏦 /bank/ledger" [level=2] [ref=e26]
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - generic [ref=e29]: Available Account Balance
+          - text: $4250.00
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - generic [ref=e32]: Transfer Destination ID
+            - textbox [ref=e33]: ACC-98214
+          - generic [ref=e34]:
+            - generic [ref=e35]: Amount ($)
+            - spinbutton [ref=e36]: "250"
+        - button "Execute Wire Vault Transfer" [active] [ref=e37] [cursor=pointer]
+        - generic [ref=e38]: "{ \"success\": true, \"remainingBalance\": 4250}"

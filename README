@@ -1,0 +1,102 @@
+markdown# 🏋️‍♂️ Multi-Server Autonomous Agentic Testing Framework
+
+An enterprise-grade, custom **Agentic Quality Assurance Framework** driven by Intent-Based Orchestration. This framework eliminates rigid, brittle test scripting entirely. Instead, it exposes a loose coupling of multi-server backend infrastructure and browser automation runtimes over the **Model Context Protocol (MCP)**, allowing an LLM orchestrator to navigate systems, self-heal, execute complex transactions, and evaluate system state cognitively.
+
+---
+
+## 🏗️ Architectural Blueprint
+
+The framework moves away from traditional sequential scripts. It leverages an independent orchestration loop that maps dynamic capabilities over standard input/output (`stdio`) JSON-RPC protocol layers.
+
+Use code with caution.┌────────────────────────────────────────────────────────┐│             LLM Agent Orchestrator (Claude)            │└───────────────────────────┬────────────────────────────┘│ (Recursive Evaluation Loop)┌─────────────────────────┼─────────────────────────┐▼                         ▼                         ▼┌──────────────────┐      ┌──────────────────┐      ┌──────────────────┐│  Playwright MCP  │      │  Custom Data MCP │      │   Staging Apps   ││   (Frontend UI)  │      │   (Our Server)   │      │   (Chaos Labs)   │└──────────────────┘      └──────────────────┘      └──────────────────┘
+### Key Architectural Pillars
+
+* **Intent-Based Orchestration:** Tests are defined as plain-English natural language missions. The execution paths are generated, executed, and validated dynamically on a step-by-step basis by the core engine.
+* **Multi-Server Tool Mesh:** Exposes front-end manipulation hooks via the official Microsoft `@playwright/mcp` node alongside a custom TypeScript data seeding server over a unified JSON-RPC protocol.
+* **Cognitive Assertions:** Traditional rigid asserts (e.g., pixel-matching or strict DOM structure matches) are replaced with semantic model evaluations. The agent reviews accessibility parameters, layout streams, and network tables to isolate complex backend business-logic defects autonomously.
+
+---
+
+## 🗂️ Project Repository Matrix
+
+```text
+├── .github/
+│   └── workflows/
+│       └── agentic-qa.yml   # Headless cloud zero-human CI/CD pipeline
+├── .auth/
+│   └── .gitkeep             # Directory placeholder for secure session tokens
+├── src/
+│   ├── index.ts             # Custom Enterprise Data Seeding MCP Server
+│   ├── agent-runner.ts      # Multi-Client Parallel Agent Execution Loop
+│   └── seed-session.ts      # Programmatic MFA/Session State Extractor
+├── sandbox/
+│   └── server.mjs           # Local QA Gym Sandbox (E-Commerce + Chaos Mode Engine)
+├── package.json             # Execution script pipeline macros
+├── tsconfig.json            # Target compiler guidelines (ESNext Module mapping)
+└── README.md
+```
+
+---
+
+## ⚡ Quick-Start Installation & Local Runs
+
+### 1. Provision the Workspace
+Clone the workspace profile and install the baseline system dependencies:
+```bash
+git clone https://github.com
+cd ai-agent-testing-mesh
+npm install
+```
+
+### 2. Configure Environment Secrets
+Create a `.env` file in the root directory to hold your AI credentials securely:
+```env
+ANTHROPIC_API_KEY=sk-ant-your-live-key-here
+```
+
+### 3. Spin Up the Target Sandbox
+Launch the local isolated **QA Gym Application Sandbox** (includes live transaction ledgers, latency simulation models, and dynamic fault toggles):
+```bash
+node sandbox/server.mjs
+```
+The testing environment is now live at `http://localhost:5173`.
+
+### 4. Execute the Autonomous Run
+Open a separate terminal window and trigger the core multi-client agent engine:
+```bash
+npm run agent
+```
+
+---
+
+## 🎯 Production-Grade Capabilities Showcased
+
+### 🛡️ 1. Enterprise Session Bypassing (MFA / Okta)
+When dealing with enterprise gateways using multi-factor push notifications, the framework implements **Session Injection**. Run the weekly configuration script to complete manual authorization checks once:
+```bash
+npm run seed-auth
+```
+This script serializes all session cookies and cryptographic tokens into `.auth/session-state.json`. The framework then automatically injects this configuration straight into the background browser context via the `--storage-state` flag, completely skipping the login gate on subsequent pipeline cycles.
+
+### 💥 2. Cognitive Bug Isolation (Chaos Mode Diagnostics)
+When the QA Gym sandbox's **Chaos Mode** toggle is flipped active, application endpoints intentionally process transactions faulty or double-deduct values on backend tables. 
+
+Traditional automated tests will fail immediately on a hardcoded timeout wrapper. This agentic layout dynamically catches the failure anomaly, performs runtime calculation differentials, queries `browser_console_messages` for errors, and writes an exact technical report identifying it as a server-side business-logic defect.
+
+---
+
+## 🚀 Headless Continuous Integration (GitHub Actions)
+
+The framework is configured to spin up entirely headless inside clean cloud containers. On every code push or scheduling loop, the `.github/workflows/agentic-qa.yml` profile handles automated provisioning:
+
+```yaml
+- name: Provision Playwright OS Dependencies
+  run: npx playwright install-deps
+
+- name: Run Multi-Server Agent Engine
+  env:
+    ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+  run: npm run agent
+```
+
+Ensure your `ANTHROPIC_API_KEY` is added to your repository's **GitHub Secr

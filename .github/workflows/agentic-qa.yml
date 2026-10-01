@@ -1,0 +1,33 @@
+name: Autonomous Agentic QA Suite
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: # Allows manual execution from the GitHub Actions dashboard
+
+jobs:
+  run-autonomous-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code Repository
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js Environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: Install Project Dependencies
+      run: npm ci
+
+    - name: Provision Playwright OS Dependencies
+      run: npx playwright install-deps
+
+    - name: Run Multi-Server Agent Engine
+      env:
+        ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      run: npm run agent
